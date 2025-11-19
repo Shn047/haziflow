@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Chinese Text Segmenter",
+  "version": "1.0",
+  "description": "Segment and translate Chinese text for learners",
+  
+  
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png"
+    }
+  },
+  
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module",
+    "persistent": false
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "permissions": [
+    "activeTab",
+    "http://192.168.1.173:8000/api/v1/segment"
+  ]
+}

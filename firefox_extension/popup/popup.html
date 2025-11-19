@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Segmenter</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>HanziFlow</h1>
+        </header>
+
+        <main>
+            <!-- Loading State -->
+            <div id="loading" class="state hidden">
+                <div class="spinner"></div>
+                <p>Segmenting Chinese text...</p>
+            </div>
+
+            <!-- Results State -->
+            <div id="results" class="state hidden">
+                <div class="result-section">
+                    <h3>Original Text:</h3>
+                    <p id="originalText"></p>
+                </div>
+
+                <!-- NEW: Added Segmented Sentence Section -->
+                <div class="result-section">
+                    <h3>Full Segmentation:</h3>
+                    <p id="segmentedSentence" class="segmented-sentence-text"></p>
+                </div>
+                
+                <div class="result-section">
+                    <h3>Word by Word:</h3>
+                    <div id="wordList" class="word-list"></div>
+                </div>
+
+                <!-- 
+                  THIS IS THE SECTION THAT WAS MISSING 
+                -->
+                <div id="usagePatterns" class="result-section hidden">
+                    <h3>Usage Patterns:</h3>
+                    <div id="usagePatternList" class="usage-pattern-list"></div>
+                </div>
+
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="state hidden">
+                <div class="error-icon">⚠️</div>
+                <p id="errorMessage"></p>
+            </div>
+
+            <!-- Instructions State -->
+            <div id="instructions" class="state">
+                <div class="info-icon">ℹ️</div>
+                <p>Please select <b>Chinese text</b> on any webpage to use this extension</p>
+            </div>
+        </main>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

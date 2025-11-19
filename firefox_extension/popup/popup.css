@@ -1,0 +1,182 @@
+:root {
+    /* Light mode colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #213547;
+    --text-secondary: #666666;
+    --border-color: #e1e5e9;
+    --card-bg: #ffffff;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark mode colors */
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --text-primary: #ffffff;
+        --text-secondary: #a0a0a0;
+        --border-color: #404040;
+        --card-bg: #2d2d2d;
+        --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 440px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.container {
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: var(--bg-secondary);
+    padding: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Main content */
+main {
+    padding: 16px;
+}
+
+/* State management */
+.state {
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Loading state */
+#loading {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid #4f46e5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 16px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Instructions state */
+#instructions {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.info-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+/* Error state */
+#error {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.error-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+/* Results state */
+.original-text {
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.original-text h3 {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#originalText {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.segmentation-results h3 {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Word list */
+.word-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.word {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 8px;
+    border-radius: 6px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    min-width: 60px;
+}
+
+.word:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.word-chinese {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.word-translation {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-align: center;
+}
